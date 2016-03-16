@@ -1,0 +1,14 @@
+{
+  "name": "snake_case_to_camelcase",
+  "version": "1.0.0",
+  "description": "Middleware to convert objects from snake_case to camelCase",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha test/test.js"
+  },
+  "author": "Terence Li",
+  "license": "ISC",
+  "dependencies": {
+    "lodash.camelcase": "^4.0.0"
+  }
+}
