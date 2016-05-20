@@ -14,7 +14,6 @@ module.exports = function (objectsToConvert) {
   }
 
   if (typeof objectsToConvert === 'object') {
-    console.log('shoudl be in here')
     objectsToConvert = convertObjectKeysToCamelCase(objectsToConvert)
 
   }
