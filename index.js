@@ -1,25 +1,25 @@
 var camelCase = require('lodash.camelcase')
 
-module.exports = function (req, res, next) {
-  if (!req.pgRows) return next()
+module.exports = function (objectsToConvert) {
 
-  if (req.pgRows.constructor === Array) {
+  if (!objectsToConvert) return null;
+
+  if (objectsToConvert.constructor === Array) {
     var jsRows = []
-
-    req.pgRows.forEach(function (pgRow) {
-      jsRows.push(convertObjectKeysToCamelCase(pgRow))
+    objectsToConvert.forEach(function (object) {
+      jsRows.push(convertObjectKeysToCamelCase(object))
     })
 
-    req.jsRows = jsRows
-
-    return req.jsRows
+    return jsRows
   }
 
-  if (typeof req.pgRows === 'object') {
-    req.jsRows = convertObjectKeysToCamelCase(req.pgRows)
+  if (typeof objectsToConvert === 'object') {
+    console.log('shoudl be in here')
+    objectsToConvert = convertObjectKeysToCamelCase(objectsToConvert)
+
   }
 
-  return req.jsRows
+  return objectsToConvert
 }
 
 function convertObjectKeysToCamelCase (obj) {
